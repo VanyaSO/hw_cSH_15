@@ -4,23 +4,33 @@ namespace hw_cSH_15;
 
 public static class FileSystem
 {
-    private static string SerializationMagazine(Magazine obj) => JsonConvert.SerializeObject(obj);
+    private static string BuildDefPath(string path) => path.Length == 0 ? "magazine.json" : $"{path.Trim()}";
+    public static string SerializationMagazine(Magazine obj) => JsonConvert.SerializeObject(obj);
     
+    public static void SaveToFile(string serializedObj, string path)
+    {
+        string buildPath = BuildDefPath(path);
+        File.WriteAllText(buildPath, serializedObj);
+    }
     public static void SaveToFile(Magazine obj, string path)
     {
         string SerializedObj = SerializationMagazine(obj);
-        string buildPath = path.Length == 0 ? "magazine.json" : $"{path.Trim()}.json";
+        string buildPath = BuildDefPath(path);
         File.WriteAllText(buildPath, SerializedObj);
     }
 
     public static Magazine LoadFromFile(string path)
     {
-        Magazine mag = null;
-        if (File.Exists(path))
+        Magazine mag;
+        
+        string buildPath = BuildDefPath(path);
+        if (File.Exists(buildPath))
         {
-            string json = File.ReadAllText(path);
+            string json = File.ReadAllText(buildPath);
             mag = JsonConvert.DeserializeObject<Magazine>(json);
         }
+        else 
+            throw new Exception("File not found");
 
         return mag;
     }
