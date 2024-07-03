@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "X5BKgRoMBTIQcEHxuM8qnibgq80HvJMdNpZ9c8cAuHtHz1E1Hh0v4B/zBnaRM93eQmJENT7QEecoSbBa2yCijA==",
+  "success": true,
+  "projectFilePath": "/Users/ivanushachov/Desktop/hw_cSH_15/hw_cSH_15/hw_cSH_15.csproj",
+  "expectedPackageFiles": [
+    "/Users/ivanushachov/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
